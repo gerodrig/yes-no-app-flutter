@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/config/theme/app_theme.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
       theme: AppTheme( selectedColor: 1 ).theme(),
       home: Scaffold(
           appBar: AppBar(
-            title: Text('Material App Bar'),
+            title: const Text('Material App Bar'),
           ),
-          body: FilledButton(onPressed: () {}, child: Text('Click Me'))),
+          body: FilledButton(onPressed: () {}, child: const Text('Click Me'))),
     );
   }
 }
