@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/domain/entities/message.dart';
 
-class HerMessageBubble extends StatelessWidget {
-  const HerMessageBubble({super.key});
+class OtherMessageBubble extends StatelessWidget {
+  final Message message;
+
+  const OtherMessageBubble({super.key, required this.message});
 
   @override
   Widget build(BuildContext context) {
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:694335238.
     final colors = Theme.of(context).colorScheme;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:728560148.
         Container(
             decoration: BoxDecoration(
               color: colors.secondary,
@@ -28,7 +29,7 @@ class HerMessageBubble extends StatelessWidget {
           height: 5.0,
         ),
 
-        _ImageBubble(),
+        _ImageBubble(message.imageUrl!),
 
         const SizedBox(height: 10)
       ],
@@ -37,6 +38,9 @@ class HerMessageBubble extends StatelessWidget {
 }
 
 class _ImageBubble extends StatelessWidget {
+  final String imageUrl;
+
+  const _ImageBubble( this.imageUrl)  ;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -44,7 +48,7 @@ class _ImageBubble extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20.0),
       child: Image.network(
-        'https://yesno.wtf/assets/no/20-56c4b19517aa69c8f7081939198341a4.gif',
+        imageUrl,
         width: size.width * 0.7,
         height: 150,
         fit: BoxFit.cover,
